@@ -1,4 +1,4 @@
-# element-status-page
+# Statusbruh.
 
 ## Project setup
 ```
