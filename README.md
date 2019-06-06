@@ -1,6 +1,8 @@
-# Statusbruh.
+# Statusbrah.
 
 Open source status page based on [Vue.js](https://vuejs.org/) and [ElementUI](https://github.com/ElemeFE/element).
+
+[Demo.](https://westh.github.io/demo.statusbrah/)
 
 Better description coming!
 
