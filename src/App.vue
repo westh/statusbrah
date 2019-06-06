@@ -15,7 +15,7 @@
           <Timeline :incidents="incidents"></Timeline>
         </el-main>
         <el-footer>
-          Powered by ElementStatusPage
+          Powered by <a href="https://github.com/Westh/statusbrah">statusbruh.</a>
         </el-footer>
       </el-container>
     </el-col>
