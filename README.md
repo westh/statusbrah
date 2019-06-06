@@ -1,5 +1,9 @@
 # Statusbruh.
 
+Open source status page based on [Vue.js](https://vuejs.org/) and [ElementUI](https://github.com/ElemeFE/element).
+
+Better description coming!
+
 ## Project setup
 ```
 npm install
