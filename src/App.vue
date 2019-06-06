@@ -2,8 +2,11 @@
   <div id="app">
     <el-col :span="14" :offset="5">
       <el-container>
-        <el-header>
+        <el-header style="margin-top: 20px">
+          <img src="./assets/logo.png" style="height: 80%"/>
+          <!--
           <h1>ElementUI Status Page</h1>
+          -->
         </el-header>
         <el-main>
           <Alert :status="status.status" :message="status.message" style="padding-bottom: 20px"></Alert>
@@ -23,6 +26,8 @@
 import Alert from './components/Alert.vue'
 import SystemsList from './components/SystemsList.vue'
 import Timeline from './components/Timeline.vue'
+import systems from './systems'
+import incidents from './incidents'
 
 export default {
   name: 'app',
@@ -33,36 +38,63 @@ export default {
   },
   data () {
     return {
-      status: { status: 'error', message: '' },
-      systems: [
-        { title: 'Website', status: 'error' },
-        { title: 'Billing', status: 'warning' },
-        { title: 'Network', status: 'success' },
-        { title: 'API', status: 'maintenance' }
+      info: false,
+      statusPriority: [
+        'success',
+        'maintenance',
+        'warning',
+        'error'
       ],
-      incidents: [
-        {
-          title: 'Network outage in Europe.',
-          message: 'We have been informed that there are outages, we are working on it.',
-          date: '2019-06-05',
-          targets: [
-            { system: 'API', type: 'warning' },
-            { system: 'Network', type: 'error' }
-          ]
-        },
-        {
-          title: 'Planned maintenance.',
-          message: 'We are doing a scheduled maintenance of all systems.',
-          date: '2019-06-03',
-          targets: [
-            { system: 'Website', type: 'maintenance' },
-            { system: 'Billing', type: 'maintenance' },
-            { system: 'Network', type: 'maintenance' },
-            { system: 'API', type: 'maintenance' }
-          ]
-        }
-      ]
+      status: {
+        status: '',
+        message: ''
+      },
+      incidents: incidents,
+      systems: systems
     }
+  },
+  methods: {
+    getSystems () {
+      return new Promise((resolve) => {
+        this.incidents.forEach(incident => {
+          // console.log(incident.date)
+          this.systems.forEach(system => {
+            // console.log(incident.title + ' ' + system.title)
+            const systemInTargets = incident.targets.some(target => target.system === system.title)
+            // console.log('  systemInTargers: ' + systemInTargets)
+            let systemInPartialResolve = false
+            if (incident.partialResolve) {
+              systemInPartialResolve = incident.partialResolve.targets.some(target => target.system === system.title)
+            }
+            // console.log('  systemInPartialResolve: ' + systemInPartialResolve)
+            const resolve = incident.resolve
+            // console.log('  resolve: ' + resolve)
+            const newStatus = incident.targets.find(target => target.system === system.title) ? incident.targets.find(target => target.system === system.title).type : 'success'
+            const newStatusTakesPriority = this.statusPriority.indexOf(newStatus) > this.statusPriority.indexOf(system.status)
+            if (systemInTargets && !systemInPartialResolve && !resolve && newStatusTakesPriority) {
+              system.status = newStatus
+            } else if (newStatusTakesPriority) {
+              system.status = 'success'
+            }
+          })
+        })
+        // console.log(JSON.stringify(this.systems))
+        resolve()
+      })
+    },
+    getStatus () {
+      this.status.status = 'success'
+      this.systems.forEach(system => {
+        if (this.statusPriority.indexOf(system.status) > this.statusPriority.indexOf(this.status.status)) {
+          this.status.status = system.status
+        } else if (this.info) {
+          this.status.status = 'info'
+        }
+      })
+    }
+  },
+  beforeMount () {
+    this.getSystems().then(this.getStatus)
   }
 }
 </script>
