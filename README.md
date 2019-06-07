@@ -2,16 +2,9 @@
 
 Open source status page based on [Vue.js](https://vuejs.org/) and [ElementUI](https://github.com/ElemeFE/element).
 
-[Demo.](https://westh.github.io/demo.statusbrah/)
+[Demo.](https://westh.github.io/statusbrah/)
 
 Better description coming!
-
-TODO:
-
-- Better description
-- Set max width
-- Fix favicon
-- Make scaling better for mobile
 
 ## Project setup
 ```
