@@ -1,7 +1,10 @@
 <template>
   <div id="app">
+    <!--
     <el-col :span="14" :offset="5">
-      <el-container>
+      <el-col :span="14" :offset="5" style="max-width: 900px">
+      -->
+      <el-container class="customContainer">
         <el-header style="margin-top: 20px">
           <img src="./assets/logo.png" style="height: 80%"/>
           <!--
@@ -18,7 +21,7 @@
           Powered by <a href="https://github.com/Westh/statusbrah">statusbrah.</a>
         </el-footer>
       </el-container>
-    </el-col>
+    <!--</el-col>-->
   </div>
 </template>
 
@@ -106,5 +109,30 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 30px;
+}
+@media screen and (min-width: 1100px) {
+  .customContainer {
+    width: 60%;
+    margin: auto;
+    max-width: 900px;
+  }
+}
+@media screen and (max-width: 1100px) and (min-width: 800px) {
+  .customContainer {
+    width: 80%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 800px) and (min-width: 700px) {
+  .customContainer {
+    width: 90%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 700px) {
+  .customContainer {
+    width: 100%;
+    margin: auto;
+  }
 }
 </style>

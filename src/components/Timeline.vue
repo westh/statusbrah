@@ -10,13 +10,14 @@
       >
         <el-card style="margin-top: 15px" v-if="incidents.find(o => o.date === item.value)">
           <h4 style="display: inline-block; margin-top: 6px;">{{ incidents.find(o => o.date === item.value).title }}</h4>
-          <div style="display: inline-block; float: right;">
+          <div class="tagContainer">
             <el-tag
               v-for="(item, index) in incidents.find(o => o.date === item.value).targets"
               :key="index"
               :type="getType(item.type)"
               effect="dark"
               style="margin-right: 4px"
+              class="tagSpacing"
             >
               {{ item.system }}
             </el-tag>
@@ -30,13 +31,13 @@
           <div v-if="incidents.find(o => o.date === item.value).partialResolve">
             <el-divider></el-divider>
             <h4 style="display: inline-block; margin-top: 6px;">Partially resolved.</h4>
-            <div style="display: inline-block; float: right;">
+            <div class="tagContainer">
               <el-tag
                 v-for="(item, index) in incidents.find(o => o.date === item.value).partialResolve.targets"
                 :key="index"
                 :type="getType(item.type)"
                 effect="dark"
-                style="margin-right: 4px"
+                class="tagSpacing"
               >
                 {{ item.system }}
               </el-tag>
@@ -103,5 +104,23 @@ export default {
 >>>.el-timeline-item__timestamp.is-top {
     margin-bottom: 8px;
     padding-top: 2px;
+}
+@media screen and (min-width: 600px) {
+  .tagContainer {
+    display: inline-block;
+    float: right;
+  }
+  .tagSpacing {
+    margin-right: 4px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tagContainer {
+    display: block;
+  }
+  .tagSpacing {
+    margin-right: 4px;
+    margin-top: 4px;
+  }
 }
 </style>

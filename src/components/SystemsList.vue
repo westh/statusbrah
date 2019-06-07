@@ -8,7 +8,7 @@
         shadow="never"
       >
         {{ item.title }}
-        <div :style="getColor(item.status)">
+        <div class="statusIndication" :style="getColor(item.status)">
           <div v-if="item.status === 'success'" class="iconText">
             Operational
           </div>
@@ -38,7 +38,7 @@ export default {
       return 'innerCard' + (index !== this.systems.length - 1 ? ' upperCard' : '')
     },
     getColor (status) {
-      let style = 'float: right;'
+      let style = ''
       if (status === 'success') {
         style += 'color: #67c23a;'
       }
@@ -68,5 +68,15 @@ export default {
 .iconText {
   display: inline-block;
   margin-right: 10px;
+}
+@media screen and (min-width: 600px) {
+  .statusIndication {
+    float: right;
+  }
+}
+@media screen and (max-width: 600px) {
+  .statusIndication {
+    margin-top: 8px;
+  }
 }
 </style>
