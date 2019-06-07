@@ -6,6 +6,13 @@ Open source status page based on [Vue.js](https://vuejs.org/) and [ElementUI](ht
 
 Better description coming!
 
+TODO:
+
+- Better description
+- Set max width
+- Fix favicon
+- Make scaling better for mobile
+
 ## Project setup
 ```
 npm install
