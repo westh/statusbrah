@@ -72,6 +72,10 @@ This is a very quick rundown of which files you will need to modify in order to 
 
 - General cleanup
 
+- Make colors easier to customise
+
+- Make logo and title depend on a config file
+
 - Make a dynamic version with mongodb and nodejs API
 
   
