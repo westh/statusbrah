@@ -72,7 +72,7 @@ This is a very quick rundown of which files you will need to modify in order to 
 
 - General cleanup
 
-- Make colors easier to customise
+- Make colours easier to customise
 
 - Make logo and title depend on a config file
 
