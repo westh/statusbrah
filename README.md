@@ -54,7 +54,7 @@ npm run lint
 
 This is a very quick rundown of which files you will need to modify in order to customise the status page to your liking.
 
-- `src/systems.js`  should contain all the systems that you would like to be shown in the status page. Formating of this file can be deferred from the example given with the initial install ~~, otherwise see below.~~
+- `src/systems.js`  should contain all the systems that you would like to be shown in the status page. Formatting of this file can be deferred from the example given with the initial install ~~, otherwise see below.~~
 
 - `src/incidents.js`  should hold all your incidents. Be aware that for each new update to this file you will need to rebuild and deploy your webpage again. The format of each incident can be deferred from the example file that is included in the initial install ~~, otherwise see a more detailed version below.~~
 
