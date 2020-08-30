@@ -8,8 +8,13 @@
         :timestamp="item.text"
         placement="top"
       >
-        <el-card style="margin-top: 15px" v-if="incidents.find(o => o.date === item.value)">
-          <h4 style="display: inline-block; margin-top: 6px;">{{ incidents.find(o => o.date === item.value).title }}</h4>
+        <el-card
+          style="margin-top: 15px"
+          v-if="incidents.find(o => o.date === item.value)"
+        >
+          <h4 style="display: inline-block; margin-top: 6px;">
+            {{ incidents.find(o => o.date === item.value).title }}
+          </h4>
           <div class="tagContainer">
             <el-tag
               v-for="(item, index) in incidents.find(o => o.date === item.value).targets"
@@ -22,15 +27,23 @@
               {{ item.system }}
             </el-tag>
           </div>
-          <p>{{ incidents.find(o => o.date === item.value).message }}</p>
+          <p>
+            {{ incidents.find(o => o.date === item.value).message }}
+          </p>
           <div v-if="incidents.find(o => o.date === item.value).update">
-            <el-divider></el-divider>
-            <h4 style="display: inline-block; margin-top: 6px;">Update.</h4>
-            <p>{{ incidents.find(o => o.date === item.value).update.message }}</p>
+            <el-divider />
+            <h4 style="display: inline-block; margin-top: 6px;">
+              Update.
+            </h4>
+            <p>
+              {{ incidents.find(o => o.date === item.value).update.message }}
+            </p>
           </div>
           <div v-if="incidents.find(o => o.date === item.value).partialResolve">
-            <el-divider></el-divider>
-            <h4 style="display: inline-block; margin-top: 6px;">Partially resolved.</h4>
+            <el-divider />
+            <h4 style="display: inline-block; margin-top: 6px;">
+              Partially resolved.
+            </h4>
             <div class="tagContainer">
               <el-tag
                 v-for="(item, index) in incidents.find(o => o.date === item.value).partialResolve.targets"
@@ -42,15 +55,23 @@
                 {{ item.system }}
               </el-tag>
             </div>
-            <p>{{ incidents.find(o => o.date === item.value).partialResolve.message }}</p>
+            <p>
+              {{ incidents.find(o => o.date === item.value).partialResolve.message }}
+            </p>
           </div>
           <div v-if="incidents.find(o => o.date === item.value).resolve">
-            <el-divider></el-divider>
-            <h4 style="display: inline-block; margin-top: 6px;">Resolved.</h4>
-            <p>{{ incidents.find(o => o.date === item.value).resolve.message }}</p>
+            <el-divider />
+            <h4 style="display: inline-block; margin-top: 6px;">
+              Resolved.
+            </h4>
+            <p>
+              {{ incidents.find(o => o.date === item.value).resolve.message }}
+            </p>
           </div>
         </el-card>
-        <h3 v-else style="color: #6a737d">No incidents reported.</h3>
+        <h3 v-else style="color: #6a737d">
+          No incidents reported.
+        </h3>
       </el-timeline-item>
     </el-timeline>
   </div>  

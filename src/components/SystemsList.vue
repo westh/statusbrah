@@ -8,21 +8,44 @@
         shadow="never"
       >
         {{ item.title }}
-        <div class="statusIndication" :style="getColor(item.status)">
-          <div v-if="item.status === 'success'" class="iconText">
+        <div
+          class="statusIndication"
+          :style="getColor(item.status)"
+        >
+          <div
+            v-if="item.status === 'success'"
+            class="iconText"
+          >
             Operational
           </div>
-          <div v-if="item.status === 'warning'" class="iconText">
+          <div
+            v-if="item.status === 'warning'"
+            class="iconText"
+          >
             Performance degraded
           </div>
-          <div v-if="item.status === 'error'" class="iconText">
+          <div
+            v-if="item.status === 'error'"
+            class="iconText"
+          >
             Critical
           </div>
-          <div v-if="item.status === 'maintenance'" class="iconText">
+          <div
+            v-if="item.status === 'maintenance'"
+            class="iconText"
+          >
             Under maintenance
           </div>
-          <i v-if="item.status === 'maintenance'" class="el-icon-s-order" style="font-size: 20px"></i>
-          <i v-else :class="'el-icon-' + item.status" style="font-size: 20px"></i>
+          <i
+            v-if="item.status === 'maintenance'"
+            class="el-icon-s-order"
+            style="font-size: 20px"
+          />
+          <i
+            v-else
+            :class="'el-icon-' + item.status"
+            style="font-size: 20px"
+          />
         </div>
       </el-card>
     </el-card>

@@ -7,8 +7,8 @@
       effect="dark"
       :closable="false"
       center
-      v-if="status === 'success'">
-    </el-alert>
+      v-if="status === 'success'"
+    />
     <el-alert
       :title="infoTitle"
       type="info"
@@ -16,8 +16,8 @@
       effect="dark"
       :closable="false"
       center
-      v-if="status === 'info'">
-    </el-alert>
+      v-if="status === 'info'"
+    />
     <el-alert
       :title="maintenanceTitle"
       show-icon
@@ -25,8 +25,8 @@
       :closable="false"
       center
       style="background: #409eff"
-      v-if="status === 'maintenance'">
-    </el-alert>
+      v-if="status === 'maintenance'"
+    />
     <el-alert
       :title="warningTitle"
       type="warning"
@@ -34,8 +34,8 @@
       effect="dark"
       :closable="false"
       center
-      v-if="status === 'warning'">
-    </el-alert>
+      v-if="status === 'warning'"
+    />
     <el-alert
       :title="errorTitle"
       type="error"
@@ -43,8 +43,8 @@
       effect="dark"
       :closable="false"
       center
-      v-if="status === 'error'">
-    </el-alert>
+      v-if="status === 'error'"
+    />
   </div>
 </template>
 

@@ -2,13 +2,25 @@
   <div id="app">
     <el-container class="customContainer">
       <el-header style="margin-top: 20px">
-        <img src="./assets/logo.png" style="height: 80%"/>
+        <img
+          src="./assets/logo.png"
+          style="height: 80%"
+        />
       </el-header>
       <el-main>
-        <Alert :status="status.status" :message="status.message" style="padding-bottom: 20px"></Alert>
-        <SystemsList :systems="systems" style="padding-bottom: 10px"></SystemsList>
-        <h1>Incidents</h1>
-        <Timeline :incidents="incidents"></Timeline>
+        <Alert
+          :status="status.status"
+          :message="status.message"
+          style="padding-bottom: 20px"
+        />
+        <SystemsList
+          :systems="systems"
+          style="padding-bottom: 10px"
+        />
+        <h1>
+          Incidents
+        </h1>
+        <Timeline :incidents="incidents" />
       </el-main>
       <el-footer>
         Powered by <a href="https://github.com/Westh/statusbrah">statusbrah.</a>
