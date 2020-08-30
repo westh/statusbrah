@@ -1,27 +1,19 @@
 <template>
   <div id="app">
-    <!--
-    <el-col :span="14" :offset="5">
-      <el-col :span="14" :offset="5" style="max-width: 900px">
-      -->
-      <el-container class="customContainer">
-        <el-header style="margin-top: 20px">
-          <img src="./assets/logo.png" style="height: 80%"/>
-          <!--
-          <h1>ElementUI Status Page</h1>
-          -->
-        </el-header>
-        <el-main>
-          <Alert :status="status.status" :message="status.message" style="padding-bottom: 20px"></Alert>
-          <SystemsList :systems="systems" style="padding-bottom: 10px"></SystemsList>
-          <h1>Incidents</h1>
-          <Timeline :incidents="incidents"></Timeline>
-        </el-main>
-        <el-footer>
-          Powered by <a href="https://github.com/Westh/statusbrah">statusbrah.</a>
-        </el-footer>
-      </el-container>
-    <!--</el-col>-->
+    <el-container class="customContainer">
+      <el-header style="margin-top: 20px">
+        <img src="./assets/logo.png" style="height: 80%"/>
+      </el-header>
+      <el-main>
+        <Alert :status="status.status" :message="status.message" style="padding-bottom: 20px"></Alert>
+        <SystemsList :systems="systems" style="padding-bottom: 10px"></SystemsList>
+        <h1>Incidents</h1>
+        <Timeline :incidents="incidents"></Timeline>
+      </el-main>
+      <el-footer>
+        Powered by <a href="https://github.com/Westh/statusbrah">statusbrah.</a>
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
@@ -60,18 +52,13 @@ export default {
     getSystems () {
       return new Promise((resolve) => {
         this.incidents.forEach(incident => {
-          // console.log(incident.date)
           this.systems.forEach(system => {
-            // console.log(incident.title + ' ' + system.title)
             const systemInTargets = incident.targets.some(target => target.system === system.title)
-            // console.log('  systemInTargers: ' + systemInTargets)
             let systemInPartialResolve = false
             if (incident.partialResolve) {
               systemInPartialResolve = incident.partialResolve.targets.some(target => target.system === system.title)
             }
-            // console.log('  systemInPartialResolve: ' + systemInPartialResolve)
             const resolve = incident.resolve
-            // console.log('  resolve: ' + resolve)
             const newStatus = incident.targets.find(target => target.system === system.title) ? incident.targets.find(target => target.system === system.title).type : 'success'
             const newStatusTakesPriority = this.statusPriority.indexOf(newStatus) > this.statusPriority.indexOf(system.status)
             if (systemInTargets && !systemInPartialResolve && !resolve && newStatusTakesPriority) {
@@ -81,7 +68,6 @@ export default {
             }
           })
         })
-        // console.log(JSON.stringify(this.systems))
         resolve()
       })
     },
