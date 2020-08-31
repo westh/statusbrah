@@ -13,12 +13,15 @@ module.exports = {
     'vue/html-quotes': [
       1,
       'single',
-      { avoidEscap: false }
+      { avoidEscap: true }
     ],
     quotes: [
       1,
       'single',
-      { avoidEscape: true }
+      {
+        avoidEscape: true,
+        allowTemplateLiterals: true
+      }
     ]
   },
   parserOptions: {
