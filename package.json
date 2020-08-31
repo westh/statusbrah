@@ -22,14 +22,25 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.13",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.6.10"
   },
+  "lint-staged": {
+    "*.{js,vue,html}": [
+      "eslint --fix"
+    ]
+  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
     }
   },
   "browserslist": [
