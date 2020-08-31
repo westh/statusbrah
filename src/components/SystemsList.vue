@@ -1,28 +1,50 @@
 <template>
-  <div class="SystemsList">
+  <div class='SystemsList'>
     <el-card>
       <el-card
-        v-for="(item, index) in systems"
-        :key="index"
-        :class="getClass(index)"
-        shadow="never"
+        v-for='(item, index) in systems'
+        :key='index'
+        :class='getClass(index)'
+        shadow='never'
       >
-        {{ item.title }}
-        <div class="statusIndication" :style="getColor(item.status)">
-          <div v-if="item.status === 'success'" class="iconText">
-            Operational
+        <div class='wrapper'>
+          <div>
+            {{ item.title }}
           </div>
-          <div v-if="item.status === 'warning'" class="iconText">
-            Performance degraded
+          <div :class='item.status'>
+            <div
+              v-if='item.status === "success"'
+              class='iconText'
+            >
+              Operational
+            </div>
+            <div
+              v-if='item.status === "warning"'
+              class='iconText'
+            >
+              Performance degraded
+            </div>
+            <div
+              v-if='item.status === "error"'
+              class='iconText'
+            >
+              Critical
+            </div>
+            <div
+              v-if='item.status === "maintenance"'
+              class='iconText'
+            >
+              Under maintenance
+            </div>
+            <i
+              v-if='item.status === "maintenance"'
+              class='el-icon-s-order'
+            />
+            <i
+              v-else
+              :class='"el-icon-" + item.status'
+            />
           </div>
-          <div v-if="item.status === 'error'" class="iconText">
-            Critical
-          </div>
-          <div v-if="item.status === 'maintenance'" class="iconText">
-            Under maintenance
-          </div>
-          <i v-if="item.status === 'maintenance'" class="el-icon-s-order" style="font-size: 20px"></i>
-          <i v-else :class="'el-icon-' + item.status" style="font-size: 20px"></i>
         </div>
       </el-card>
     </el-card>
@@ -36,28 +58,17 @@ export default {
   methods: {
     getClass (index) {
       return 'innerCard' + (index !== this.systems.length - 1 ? ' upperCard' : '')
-    },
-    getColor (status) {
-      let style = ''
-      if (status === 'success') {
-        style += 'color: #67c23a;'
-      }
-      if (status === 'warning') {
-        style += 'color: #e6a23c;'
-      }
-      if (status === 'error') {
-        style += 'color: #f56c6c'
-      }
-      if (status === 'maintenance') {
-        style += 'color: #409eff'
-      }
-      return style
     }
   }
 }
 </script>
 
 <style scoped>
+.wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
 .upperCard {
   margin-bottom: 20px;
 }
@@ -69,14 +80,19 @@ export default {
   display: inline-block;
   margin-right: 10px;
 }
-@media screen and (min-width: 600px) {
-  .statusIndication {
-    float: right;
-  }
+.success {
+  color: #67c23a;
 }
-@media screen and (max-width: 600px) {
-  .statusIndication {
-    margin-top: 8px;
-  }
+.warning {
+  color: #e6a23c;
+}
+.error {
+  color: #f56c6c;
+}
+.maintenance {
+  color: #409eff;
+}
+i {
+  font-size: 20px;
 }
 </style>

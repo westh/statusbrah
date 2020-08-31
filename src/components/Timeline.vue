@@ -1,59 +1,76 @@
 <template>
-  <div class="block">
+  <div class='block'>
     <el-timeline>
       <el-timeline-item
-        v-for="(item, index) in dates"
-        :key="index"
-        size="large"
-        :timestamp="item.text"
-        placement="top"
+        v-for='(item, index) in dates'
+        :key='index'
+        size='large'
+        :timestamp='item.text'
+        placement='top'
       >
-        <el-card style="margin-top: 15px" v-if="incidents.find(o => o.date === item.value)">
-          <h4 style="display: inline-block; margin-top: 6px;">{{ incidents.find(o => o.date === item.value).title }}</h4>
-          <div class="tagContainer">
+        <el-card v-if='incidents.find(o => o.date === item.value)'>
+          <h4>
+            {{ incidents.find(o => o.date === item.value).title }}
+          </h4>
+          <div class='tagContainer'>
             <el-tag
-              v-for="(item, index) in incidents.find(o => o.date === item.value).targets"
-              :key="index"
-              :type="getType(item.type)"
-              effect="dark"
-              style="margin-right: 4px"
-              class="tagSpacing"
+              v-for='(item, index) in incidents.find(o => o.date === item.value).targets'
+              :key='index'
+              :type='getType(item.type)'
+              effect='dark'
+              class='tagSpacing'
             >
               {{ item.system }}
             </el-tag>
           </div>
-          <p>{{ incidents.find(o => o.date === item.value).message }}</p>
-          <div v-if="incidents.find(o => o.date === item.value).update">
-            <el-divider></el-divider>
-            <h4 style="display: inline-block; margin-top: 6px;">Update.</h4>
-            <p>{{ incidents.find(o => o.date === item.value).update.message }}</p>
+          <p>
+            {{ incidents.find(o => o.date === item.value).message }}
+          </p>
+          <div v-if='incidents.find(o => o.date === item.value).update'>
+            <el-divider />
+            <h4>
+              Update.
+            </h4>
+            <p>
+              {{ incidents.find(o => o.date === item.value).update.message }}
+            </p>
           </div>
-          <div v-if="incidents.find(o => o.date === item.value).partialResolve">
-            <el-divider></el-divider>
-            <h4 style="display: inline-block; margin-top: 6px;">Partially resolved.</h4>
-            <div class="tagContainer">
+          <div v-if='incidents.find(o => o.date === item.value).partialResolve'>
+            <el-divider />
+            <h4>
+              Partially resolved.
+            </h4>
+            <div class='tagContainer'>
               <el-tag
-                v-for="(item, index) in incidents.find(o => o.date === item.value).partialResolve.targets"
-                :key="index"
-                :type="getType(item.type)"
-                effect="dark"
-                class="tagSpacing"
+                v-for='(item, index) in incidents.find(o => o.date === item.value).partialResolve.targets'
+                :key='index'
+                :type='getType(item.type)'
+                effect='dark'
+                class='tagSpacing'
               >
                 {{ item.system }}
               </el-tag>
             </div>
-            <p>{{ incidents.find(o => o.date === item.value).partialResolve.message }}</p>
+            <p>
+              {{ incidents.find(o => o.date === item.value).partialResolve.message }}
+            </p>
           </div>
-          <div v-if="incidents.find(o => o.date === item.value).resolve">
-            <el-divider></el-divider>
-            <h4 style="display: inline-block; margin-top: 6px;">Resolved.</h4>
-            <p>{{ incidents.find(o => o.date === item.value).resolve.message }}</p>
+          <div v-if='incidents.find(o => o.date === item.value).resolve'>
+            <el-divider />
+            <h4>
+              Resolved.
+            </h4>
+            <p>
+              {{ incidents.find(o => o.date === item.value).resolve.message }}
+            </p>
           </div>
         </el-card>
-        <h3 v-else style="color: #6a737d">No incidents reported.</h3>
+        <h3 v-else>
+          No incidents reported.
+        </h3>
       </el-timeline-item>
     </el-timeline>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -66,16 +83,16 @@ export default {
     }
   },
   methods: {
-    getLastWeek() {
-      let date = new Date()
+    getLastWeek () {
+      const date = new Date()
 
       const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }
 
       for (let i = 0; i < 7; i++) {
-        let tempDate = new Date()
+        const tempDate = new Date()
         tempDate.setDate(date.getDate() - i)
-        let strText = tempDate.toLocaleDateString('en-AU', options)
-        let strValue = tempDate.toISOString().split('T')[0]
+        const strText = tempDate.toLocaleDateString('en-AU', options)
+        const strValue = tempDate.toISOString().split('T')[0]
         this.dates.push({ text: strText, value: strValue })
       }
     },
@@ -122,5 +139,15 @@ export default {
     margin-right: 4px;
     margin-top: 4px;
   }
+}
+.el-card {
+  margin-top: 15px;
+}
+h4 {
+  display: inline-block;
+  margin-top: 6px;
+}
+h3 {
+  color: #6a737d
 }
 </style>

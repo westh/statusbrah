@@ -1,50 +1,50 @@
 <template>
-  <div class="Alert">
+  <div class='Alert'>
     <el-alert
-      :title="successTitle"
-      type="success"
+      :title='successTitle'
+      type='success'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'success'">
-    </el-alert>
+      v-if='status === "success"'
+    />
     <el-alert
-      :title="infoTitle"
-      type="info"
+      :title='infoTitle'
+      type='info'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'info'">
-    </el-alert>
+      v-if='status === "info"'
+    />
     <el-alert
-      :title="maintenanceTitle"
+      :title='maintenanceTitle'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      style="background: #409eff"
-      v-if="status === 'maintenance'">
-    </el-alert>
+      class='maintenance'
+      v-if='status === "maintenance"'
+    />
     <el-alert
-      :title="warningTitle"
-      type="warning"
+      :title='warningTitle'
+      type='warning'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'warning'">
-    </el-alert>
+      v-if='status === "warning"'
+    />
     <el-alert
-      :title="errorTitle"
-      type="error"
+      :title='errorTitle'
+      type='error'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'error'">
-    </el-alert>
+      v-if='status === "error"'
+    />
   </div>
 </template>
 
@@ -75,5 +75,8 @@ export default {
 >>>.el-alert__icon {
   font-size: 24px;
   width: 24px;
+}
+.maintenance {
+  background: #409eff !important;
 }
 </style>

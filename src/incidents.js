@@ -36,7 +36,7 @@ export default [
       targets: [
         { system: 'Website', type: 'success' },
         { system: 'Billing', type: 'success' }
-      ],
+      ]
     }
   },
   // third incident
