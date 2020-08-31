@@ -8,11 +8,8 @@
         :timestamp='item.text'
         placement='top'
       >
-        <el-card
-          style='margin-top: 15px'
-          v-if='incidents.find(o => o.date === item.value)'
-        >
-          <h4 style='display: inline-block; margin-top: 6px;'>
+        <el-card v-if='incidents.find(o => o.date === item.value)'>
+          <h4>
             {{ incidents.find(o => o.date === item.value).title }}
           </h4>
           <div class='tagContainer'>
@@ -21,7 +18,6 @@
               :key='index'
               :type='getType(item.type)'
               effect='dark'
-              style='margin-right: 4px'
               class='tagSpacing'
             >
               {{ item.system }}
@@ -32,7 +28,7 @@
           </p>
           <div v-if='incidents.find(o => o.date === item.value).update'>
             <el-divider />
-            <h4 style='display: inline-block; margin-top: 6px;'>
+            <h4>
               Update.
             </h4>
             <p>
@@ -41,7 +37,7 @@
           </div>
           <div v-if='incidents.find(o => o.date === item.value).partialResolve'>
             <el-divider />
-            <h4 style='display: inline-block; margin-top: 6px;'>
+            <h4>
               Partially resolved.
             </h4>
             <div class='tagContainer'>
@@ -61,7 +57,7 @@
           </div>
           <div v-if='incidents.find(o => o.date === item.value).resolve'>
             <el-divider />
-            <h4 style='display: inline-block; margin-top: 6px;'>
+            <h4>
               Resolved.
             </h4>
             <p>
@@ -69,7 +65,7 @@
             </p>
           </div>
         </el-card>
-        <h3 v-else style='color: #6a737d'>
+        <h3 v-else>
           No incidents reported.
         </h3>
       </el-timeline-item>
@@ -143,5 +139,15 @@ export default {
     margin-right: 4px;
     margin-top: 4px;
   }
+}
+.el-card {
+  margin-top: 15px;
+}
+h4 {
+  display: inline-block;
+  margin-top: 6px;
+}
+h3 {
+  color: #6a737d
 }
 </style>

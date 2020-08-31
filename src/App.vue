@@ -1,22 +1,18 @@
 <template>
   <div id='app'>
     <el-container class='customContainer'>
-      <el-header style='margin-top: 20px'>
+      <el-header>
         <img
           src='./assets/logo.png'
-          style='height: 80%'
+          class='logo'
         />
       </el-header>
       <el-main>
         <Alert
           :status='status.status'
           :message='status.message'
-          style='padding-bottom: 20px'
         />
-        <SystemsList
-          :systems='systems'
-          style='padding-bottom: 10px'
-        />
+        <SystemsList :systems='systems' />
         <h1>
           Incidents
         </h1>
@@ -107,6 +103,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 30px;
+}
+.el-header {
+  margin-top: 20px;
+}
+.logo {
+  height: 80%;
+}
+.Alert {
+  padding-bottom: 20px;
+}
+.SystemsList {
+  padding-bottom: 10px;
 }
 @media screen and (min-width: 1100px) {
   .customContainer {
