@@ -24,7 +24,7 @@
       effect='dark'
       :closable='false'
       center
-      style='background: #409eff'
+      class='maintenance'
       v-if='status === "maintenance"'
     />
     <el-alert
@@ -75,5 +75,8 @@ export default {
 >>>.el-alert__icon {
   font-size: 24px;
   width: 24px;
+}
+.maintenance {
+  background: #409eff !important;
 }
 </style>
