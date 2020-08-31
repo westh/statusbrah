@@ -1,29 +1,29 @@
 <template>
-  <div id="app">
-    <el-container class="customContainer">
-      <el-header style="margin-top: 20px">
+  <div id='app'>
+    <el-container class='customContainer'>
+      <el-header style='margin-top: 20px'>
         <img
-          src="./assets/logo.png"
-          style="height: 80%"
+          src='./assets/logo.png'
+          style='height: 80%'
         />
       </el-header>
       <el-main>
         <Alert
-          :status="status.status"
-          :message="status.message"
-          style="padding-bottom: 20px"
+          :status='status.status'
+          :message='status.message'
+          style='padding-bottom: 20px'
         />
         <SystemsList
-          :systems="systems"
-          style="padding-bottom: 10px"
+          :systems='systems'
+          style='padding-bottom: 10px'
         />
         <h1>
           Incidents
         </h1>
-        <Timeline :incidents="incidents" />
+        <Timeline :incidents='incidents' />
       </el-main>
       <el-footer>
-        Powered by <a href="https://github.com/Westh/statusbrah">statusbrah.</a>
+        Powered by <a href='https://github.com/Westh/statusbrah'>statusbrah.</a>
       </el-footer>
     </el-container>
   </div>

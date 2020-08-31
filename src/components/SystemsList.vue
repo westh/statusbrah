@@ -1,50 +1,50 @@
 <template>
-  <div class="SystemsList">
+  <div class='SystemsList'>
     <el-card>
       <el-card
-        v-for="(item, index) in systems"
-        :key="index"
-        :class="getClass(index)"
-        shadow="never"
+        v-for='(item, index) in systems'
+        :key='index'
+        :class='getClass(index)'
+        shadow='never'
       >
         {{ item.title }}
         <div
-          class="statusIndication"
-          :style="getColor(item.status)"
+          class='statusIndication'
+          :style='getColor(item.status)'
         >
           <div
-            v-if="item.status === 'success'"
-            class="iconText"
+            v-if='item.status === "success"'
+            class='iconText'
           >
             Operational
           </div>
           <div
-            v-if="item.status === 'warning'"
-            class="iconText"
+            v-if='item.status === "warning"'
+            class='iconText'
           >
             Performance degraded
           </div>
           <div
-            v-if="item.status === 'error'"
-            class="iconText"
+            v-if='item.status === "error"'
+            class='iconText'
           >
             Critical
           </div>
           <div
-            v-if="item.status === 'maintenance'"
-            class="iconText"
+            v-if='item.status === "maintenance"'
+            class='iconText'
           >
             Under maintenance
           </div>
           <i
-            v-if="item.status === 'maintenance'"
-            class="el-icon-s-order"
-            style="font-size: 20px"
+            v-if='item.status === "maintenance"'
+            class='el-icon-s-order'
+            style='font-size: 20px'
           />
           <i
             v-else
-            :class="'el-icon-' + item.status"
-            style="font-size: 20px"
+            :class='"el-icon-" + item.status'
+            style='font-size: 20px'
           />
         </div>
       </el-card>

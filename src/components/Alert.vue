@@ -1,49 +1,49 @@
 <template>
-  <div class="Alert">
+  <div class='Alert'>
     <el-alert
-      :title="successTitle"
-      type="success"
+      :title='successTitle'
+      type='success'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'success'"
+      v-if='status === "success"'
     />
     <el-alert
-      :title="infoTitle"
-      type="info"
+      :title='infoTitle'
+      type='info'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'info'"
+      v-if='status === "info"'
     />
     <el-alert
-      :title="maintenanceTitle"
+      :title='maintenanceTitle'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      style="background: #409eff"
-      v-if="status === 'maintenance'"
+      style='background: #409eff'
+      v-if='status === "maintenance"'
     />
     <el-alert
-      :title="warningTitle"
-      type="warning"
+      :title='warningTitle'
+      type='warning'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'warning'"
+      v-if='status === "warning"'
     />
     <el-alert
-      :title="errorTitle"
-      type="error"
+      :title='errorTitle'
+      type='error'
       show-icon
-      effect="dark"
-      :closable="false"
+      effect='dark'
+      :closable='false'
       center
-      v-if="status === 'error'"
+      v-if='status === "error"'
     />
   </div>
 </template>
