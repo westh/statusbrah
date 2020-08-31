@@ -1,7 +1,11 @@
 {
-  "name": "element-status-page",
-  "version": "0.1.0",
-  "private": true,
+  "name": "statusbrah",
+  "version": "0.2.0",
+  "description": "just a status page",
+  "main": "main.js",
+  "repository": "git@github.com:Westh/statusbrah.git",
+  "author": "Westh <haakonwesth@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
